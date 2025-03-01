@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Worksheet Islami</title>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="YOUR_CLIENT_KEY"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Checkout Worksheet Islami</h2>
+        <form id="order-form">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+            
+            <label for="wa">Nomor WhatsApp:</label>
+            <input type="text" id="wa" name="wa" required>
+            
+            <label for="email">Alamat Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <p><strong>Produk akan dikirim ke email setelah pembayaran berhasil.</strong></p>
+        </form>
+        
+        <h3>Produk</h3>
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgoiHbeseYD1QmmFTWlgfcxlkckfK4TAB4fxWwnFAbUYdUtdQtJlR5MwNFkBpLveZQ0VtDIk1oomMG6ps7EE96fRNRaq4nfQn8wqOrbLKer6OnHRza9HmzY9tXg51aswpM1mrCJVgN4-AsBCob0XCDwLl1gpZ_4Bh8gCy8Nn5thQ_KYFlbKpnM4CBSP-va/s1920/Ungu%20Maksimalis%20Iklan%20Promosi%20Harga%20Spesial%20Saat%20Live%20Sale%20Instagram%20Story.png" alt="Worksheet Islami">
+        
+        <div class="product-option">
+            <h4>Printable Worksheet</h4>
+            <button type="button" id="buy-button">Beli Sekarang</button>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('buy-button').addEventListener('click', function() {
+            let nama = document.getElementById('nama').value;
+            let wa = document.getElementById('wa').value;
+            let email = document.getElementById('email').value;
+            
+            if (!nama || !wa || !email) {
+                alert("Harap isi semua data terlebih dahulu.");
+                return;
+            }
+            
+            let waMessage = `Halo, saya ingin membeli produk!%0A\nNama: ${nama}%0AWhatsApp: ${wa}%0AEmail: ${email}%0AProduk: Printable Worksheet%0A\nTerima kasih!`;
+            window.location.href = `https://api.whatsapp.com/send?phone=6283890199399&text=${waMessage}`;
+        });
+    </script>
+</body>
+</html>
